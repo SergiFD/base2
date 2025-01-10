@@ -94,6 +94,7 @@ class SQLite(context: Context) :
                     it.write("$idCard - $name $surname\n".toByteArray())
                 } while (cursor.moveToNext())
             }
+            
             cursor.close()
             Toast.makeText(context, "Fitxer creat per al cicle $cycle, curs $course.", Toast.LENGTH_SHORT).show()
             return true
