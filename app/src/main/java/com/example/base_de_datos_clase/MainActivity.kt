@@ -109,7 +109,6 @@ import androidx.appcompat.app.AppCompatActivity
                     R.id.Second -> 2
                     else -> null
                 }
-
                 if (course == null) {
                     Toast.makeText(this, "Por favor, seleccione un curso.", Toast.LENGTH_SHORT)
                         .show()
