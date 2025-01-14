@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_main)
 
-            val dbHelper = SQLite(this)
+            val dbHelper = StudentHelper(this)
 
             // Referencias a los elementos de la interfaz
             val etIdCard = findViewById<EditText>(R.id.et_id_card)
@@ -102,7 +102,7 @@ import androidx.appcompat.app.AppCompatActivity
             }
 
             // Acción del botón para obtener estudiantes por ciclo y curso
-            btnFetchCycle.setOnClickListener {
+            btnFetchCourse.setOnClickListener {
                 val cycle = spinner.selectedItem.toString()
                 val course = when (radioGroup.checkedRadioButtonId) {
                     R.id.First -> 1
@@ -119,10 +119,23 @@ import androidx.appcompat.app.AppCompatActivity
                 dbHelper.getStudentsByCourse(this, cycle, course)
             }
 
+            // Acción del botón para obtener estudiantes por ciclo y curso
+            btnFetchCycle.setOnClickListener {
+                val cycle = spinner.selectedItem.toString()
+                val course = when (radioGroup.checkedRadioButtonId) {
+                    R.id.First -> 1
+                    R.id.Second -> 2
+                    else -> null
+                }
+
+                // Call method to fetch and save the students' data to a file
+                dbHelper.getStudentsByCicle(this, cycle)
+            }
+
             btnFetch.setOnClickListener {
                 val idCard = etIdCard.text.toString()
                 if (idCard.isEmpty()) {
-                    Toast.makeText(this, "Ingrese un DNI para eliminar.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Ingrese un DNI para buscar.", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
 
