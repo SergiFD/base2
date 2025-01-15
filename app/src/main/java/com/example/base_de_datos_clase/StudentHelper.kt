@@ -148,6 +148,7 @@ class StudentHelper(context: Context) :
         }
 
     }
+    
 
     fun writeStudentsByCicle(cursor: Cursor, context: Context, cycle: String) {
         if (cursor.moveToFirst()) {
