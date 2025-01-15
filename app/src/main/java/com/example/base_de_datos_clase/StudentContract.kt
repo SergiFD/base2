@@ -4,8 +4,6 @@ import android.provider.BaseColumns
 
 object StudentContract {
     object  FeedEntry : BaseColumns {
-        private const val DATABASE_NAME = "students.db"
-        private const val DATABASE_VERSION = 1
         const val TABLE_NAME = "students"
         const val COLUMN_ID_CARD = "id_card"
         const val COLUMN_NAME = "name"

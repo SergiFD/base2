@@ -151,7 +151,7 @@ class StudentHelper(context: Context) :
 
     fun writeStudentsByCicle(cursor: Cursor, context: Context, cycle: String) {
         if (cursor.moveToFirst()) {
-            val file = context.openFileOutput("students_${cycle}", Context.MODE_PRIVATE)
+            val file = context.openFileOutput("students_${cycle}.txt", Context.MODE_PRIVATE)
             file.use {
                 do {
                     val idCard = cursor.getString(
@@ -270,6 +270,4 @@ class StudentHelper(context: Context) :
             false
         }
     }
-
-
 }
