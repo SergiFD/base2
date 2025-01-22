@@ -35,14 +35,15 @@ class StudentHelper(context: Context) :
     companion object {
         //Script sql de creación
         private const val SQL_CREATE_ENTRIES = """
-            CREATE TABLE StudentContract.$TABLE_NAME (
-                $COLUMN_ID_CARD TEXT PRIMARY KEY,
-                $COLUMN_NAME TEXT NOT NULL,
-                $COLUMN_SURNAME TEXT NOT NULL,
-                $COLUMN_CYCLE TEXT CHECK($COLUMN_CYCLE IN ('ASIX', 'DAM', 'DAW')),
-                $COLUMN_COURSE INTEGER NOT NULL
-            )
-        """
+    CREATE TABLE ${TABLE_NAME} (
+        ${COLUMN_ID_CARD} TEXT PRIMARY KEY,
+        ${COLUMN_NAME} TEXT NOT NULL,
+        ${COLUMN_SURNAME} TEXT NOT NULL,
+        ${COLUMN_CYCLE} TEXT CHECK(${COLUMN_CYCLE} IN ('ASIX', 'DAM', 'DAW')),
+        ${COLUMN_COURSE} INTEGER NOT NULL
+    )
+"""
+
         private const val SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS ${TABLE_NAME}"
 
         // Si cambias el esquema de la base de datos, debes incrementar la versión.
